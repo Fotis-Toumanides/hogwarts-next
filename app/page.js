@@ -12,7 +12,7 @@ export const metadata = {
 // Fetching data from back-end and spread them using the HouseList component
 export default async function Home() {
 let houses=[];
-  await fetch('https://wizard-world-api.herokuapp.com/houses/', { next: { revalidate: 100 } })
+  await fetch('https://wizard-world-api.herokuapp.com/houses', { next: { revalidate: 100 } })
   .then(res => res.json())
   .then(data => {
       houses =  data;

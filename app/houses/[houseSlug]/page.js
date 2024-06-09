@@ -5,7 +5,7 @@ async function HouseDetails({params}){
     let fetchedHouses =[];
     let chosenHouse;
 
-          await fetch('https://wizard-world-api.herokuapp.com/houses/')
+          await fetch('https://wizard-world-api.herokuapp.com/houses')
           .then(res => res.json())
           .then(data => {
             fetchedHouses = data;

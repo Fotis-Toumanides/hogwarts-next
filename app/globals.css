@@ -18,16 +18,21 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: Verdana, Geneva, sans-serif;
+
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.spinner{
+  color: red;
+}
+
+.error{
+  margin-top: 5rem;
+  text-align: center;
 }

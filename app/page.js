@@ -11,7 +11,7 @@ export const metadata = {
 export default async function Home() {
 let houses=[null];
 try{
-  const res = await fetch('https://wizard-world-api.herokuapp.com/houses/',  { revalidate: 100 } )
+  const res = await fetch('https://wizard-world-api.herokuapp.com/houses/')
   if(res.ok){
     houses = await res.json()
   } else {

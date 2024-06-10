@@ -1,7 +1,5 @@
 import HousesList from './houses/page';
-import { Suspense } from "react";
 import MainHeader from "@/components/main-header";
-import Loading from "./loading";
 
 // This will help the web crawlers to assign right the page and help the SEO.
 export const metadata = {
@@ -11,12 +9,19 @@ export const metadata = {
 
 // Fetching data from back-end and spread them using the HouseList component
 export default async function Home() {
-let houses=[];
-  await fetch('https://wizard-world-api.herokuapp.com/houses/', { revalidate: 100 })
-  .then(res => res.json())
-  .then(data => {
-      houses =  data;
-  })
+let houses=[null];
+try{
+  const res = await fetch('https://wizard-world-api.herokuapp.com/houses/',  { revalidate: 100 } )
+  if(res.ok){
+    houses = await res.json()
+  } else {
+    console.error('Failed to fetch houses');
+  }
+} catch (error) {
+  console.error('Error fetching houses:', error);
+};
+  
+  
 
   return (
       <main>

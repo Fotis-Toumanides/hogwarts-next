@@ -1,9 +1,10 @@
 import HouseItem from '../../components/house-item.jsx';
 
 function HousesList({houses}){
+
   return(
     <ul>
-      {houses.map((house)=>{
+      {houses && houses.map((house)=>{
         return(
         <li key={house.id} >
             <HouseItem house={house}/>
